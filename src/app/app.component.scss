@@ -1,0 +1,28 @@
+@import '../scss/variables';
+@import '../scss/functions';
+
+#tsparticles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.main-content {
+    max-width: gridWidth($ttt-grid-xl-size);
+    min-width: 302px;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: $ttt-breakpoint-sm-width) {
+    .main-content {
+        max-width: gridWidth($ttt-grid-sm-size);
+    }
+}
+
+@media screen and (max-width: $ttt-breakpoint-xs-width) {
+    .main-content {
+        max-width: gridWidth($ttt-grid-xs-size);
+    }
+}

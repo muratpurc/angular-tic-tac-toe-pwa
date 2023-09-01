@@ -1,0 +1,23 @@
+<h1 class="mat-h1">Tic Tac Toe</h1>
+
+<div class="head">
+    <button mat-raised-button color="primary" (click)="newGame()">Start new Game</button>
+
+    <h2 class="mat-h2">
+        <ng-template [ngIf]="board.winner" [ngIfElse]="currentPlayer">
+            Player {{ board.winner }} won the game!
+        </ng-template>
+        <ng-template #currentPlayer>
+            Current Player: {{ board.player }}
+        </ng-template>
+    </h2>
+</div>
+
+<main>
+    <app-square 
+        *ngFor="let val of board.squares; let i = index" 
+        [class]="squareCssClass(i)"
+        [value]="val"
+        (click)="makeMove(i)"> 
+    </app-square>
+</main>

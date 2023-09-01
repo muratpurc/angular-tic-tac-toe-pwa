@@ -1,0 +1,7 @@
+// Functions
+
+// Returns calculated grid with
+@function gridWidth($width) {
+    // 3 grid items plus border
+    @return $width * 3 + 2;
+}

@@ -1,0 +1,60 @@
+@import '../../scss/variables';
+
+h1,
+.head {
+    margin-bottom: 1em;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+
+    >button {
+        align-self: flex-start;
+    }
+
+    >h2 {
+        align-self: flex-end;
+        text-align: right;
+        margin: 0 0 0.2em 0;
+    }
+}
+
+main {
+    border: $ttt-border;
+    display: grid;
+    grid-template-columns: $ttt-grid-xl-size $ttt-grid-xl-size $ttt-grid-xl-size;
+    grid-gap: 0px;
+}
+
+@media screen and (max-width: $ttt-breakpoint-sm-width) {
+    main {
+        grid-template-columns: $ttt-grid-sm-size $ttt-grid-sm-size $ttt-grid-sm-size;
+    }
+}
+
+@media screen and (max-width: $ttt-breakpoint-xs-width) {
+    h1,
+    .head {
+        margin-bottom: 10px;
+    }
+
+    .head {
+        flex-direction: column;
+
+        >button {
+            align-self: flex-start;
+            margin-bottom: 10px;
+        }
+
+        >h2 {
+            align-self: flex-start;
+            text-align: left;
+            font-size: 120%;
+        }
+    }
+
+    main {
+        grid-template-columns: $ttt-grid-xs-size $ttt-grid-xs-size $ttt-grid-xs-size;
+    }
+}

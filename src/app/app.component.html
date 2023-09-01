@@ -1,0 +1,11 @@
+
+<Particles *ngIf="winner"
+    id="tsparticles"
+    [options]="particles.options"
+    [particlesInit]="particles.init"
+></Particles>
+
+<div class="main-content">
+    <app-board (newWinner)="winnerChange($event)"></app-board>
+    <router-outlet></router-outlet>
+</div>
