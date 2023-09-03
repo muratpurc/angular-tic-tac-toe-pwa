@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { BoardService } from '../services/board.service';
+import { Nullable } from '../defines';
 
 @Component({
   selector: 'app-board',
@@ -9,15 +10,24 @@ import { BoardService } from '../services/board.service';
 
 export class BoardComponent implements OnInit {
 
-  @Output() newWinner = new EventEmitter<string|null>();
+  @Output() newWinner = new EventEmitter<Nullable<string>>();
   _board: BoardService;
+  _winner: Nullable<string>;
 
   constructor(board: BoardService) {
     this._board = board;
+    this._winner = this._board.winner;
   }
 
   get board(): BoardService {
     return this._board;
+  }
+
+  set winner(newWinner: Nullable<string>) {
+    if (this._winner !== newWinner) {
+      this._winner = newWinner;
+      this.newWinner.emit(this._winner);
+    }
   }
 
   ngOnInit(): void {
@@ -26,11 +36,12 @@ export class BoardComponent implements OnInit {
 
   newGame(): void {
     this._board.reset();
+    this.winner = this.board.winner;
   }
 
   makeMove(idx: number): void {
     this.board.makeMove(idx);
-    this.newWinner.emit(this.board.winner);
+    this.winner = this.board.winner;
   }
 
   squareCssClass(pos: number): string {

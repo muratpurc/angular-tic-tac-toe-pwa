@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ParticlesService } from './services/particles.service';
+import { Nullable } from './defines';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,13 @@ export class AppComponent {
 
   title = 'Tic Tac Toe';
   particles: ParticlesService;
-  winner: string|null;
+  winner: Nullable<string>;
 
   constructor(particles: ParticlesService) {
     this.particles = particles;
   }
 
-  winnerChange($event: string|null): void {
+  winnerChange($event: Nullable<string>): void {
     this.winner = $event;
   }
 

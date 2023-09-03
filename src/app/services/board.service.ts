@@ -59,7 +59,7 @@ export class BoardService {
     this._winner = this.calculateWinner();
   }
 
-  calculateWinner(): string|null {
+  calculateWinner(): Nullable<string> {
     for (let i = 0; i < this._lines.length; i++) {
       const [a, b, c] = this._lines[i];
       if (
