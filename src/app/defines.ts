@@ -1,6 +1,11 @@
 
 type Nullable<T> = T | null;
 
+interface IParticlesOptions {
+    preset: string;
+    emitters: Nullable<object>;
+}
+
 enum Shape {
     X = 'X',
     O = 'O'
@@ -8,5 +13,6 @@ enum Shape {
 
 export {
     Shape,
-    Nullable
+    Nullable,
+    IParticlesOptions
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Engine } from 'tsparticles-engine';
 import { loadConfettiPreset } from 'tsparticles-preset-confetti';
+import { IParticlesOptions } from '../defines';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { loadConfettiPreset } from 'tsparticles-preset-confetti';
 
 export class ParticlesService {
 
-  private _options: any = {
+  private _options: IParticlesOptions = {
     preset: "confetti",
     emitters: {
       startCount: 60,
@@ -23,7 +24,7 @@ export class ParticlesService {
     }
   };
 
-  get options(): any {
+  get options(): IParticlesOptions {
     return this._options;
   }
 
